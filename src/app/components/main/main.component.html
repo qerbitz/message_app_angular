@@ -1,0 +1,36 @@
+<form class="text-center border border-light p-5" style="margin-left: 120px; margin-right:120px"
+    [formGroup]="sendMessageFormGroup" (ngSubmit)="onSubmit()">
+
+    <div formGroupName="message" class="form-area">
+        <div class="form-group">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Recipient</mat-label>
+                <input type="text" placeholder="" aria-label="Number" matInput [formControl]="recipientControl"
+                    [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{option}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Title</label>
+            <input [formControl]="title" type="text" class="form-control" placeholder="Title">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Content</label>
+            <textarea [formControl]="content" class="form-control" rows="4"></textarea>
+        </div>
+
+    </div>
+    <!-- submit button-->
+    <div class="text-center">
+        <button type="submit" class="btn btn-info">Send message</button>
+    </div>
+
+</form>
+
+<app-messages></app-messages>

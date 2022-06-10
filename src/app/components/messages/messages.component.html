@@ -1,0 +1,29 @@
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col text-center">
+                        <h2>Actual User: <b>{{actual_sender}}</b></h2>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Sender</th>						
+                        <th>Title</th>
+                        <th style="text-align: center;">Content</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let message of messages">
+                        <td>{{message.sender}}</td>
+                        <td>{{message.title}}</td>                        
+                        <td>{{message.content}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> 
